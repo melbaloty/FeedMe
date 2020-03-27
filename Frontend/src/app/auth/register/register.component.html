@@ -1,0 +1,68 @@
+<div class="header-area header-area2">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+      </div>
+      <div class="col-lg-6">
+          <div id="formContent">
+            <!-- Tabs Titles -->
+
+            <!-- Icon -->
+            <div class="fadeIn first">
+              <div class="container"><img src="assets/images/logo/logo2.png" alt="logo"></div>
+            </div>
+
+            <!-- Login Form -->
+            <form [formGroup]="angForm" novalidate (submit)="register()">
+
+              <input type="text" id="userName" class="fadeIn second" name="userName" placeholder="username"
+                formControlName="userName">
+              <div *ngIf="submitted && angForm.controls['userName'].errors?.required"> <span>UserName is
+                  required.</span> </div>
+              <div
+                *ngIf="angForm.controls['userName'].invalid &&(angForm.controls['userName'].dirty || angForm.controls['userName'].touched)">
+                <span> userName already exist </span></div>
+
+              <input type="text" id="email" class="fadeIn second" name="email" placeholder="email"
+                formControlName="email">
+              <div *ngIf="submitted && angForm.controls['email'].errors?.email"><span>Email is not valid.</span></div>
+              <div *ngIf="submitted && angForm.controls['email'].errors?.required"><span>Email is required</span> </div>
+
+              <!-- <show-hide-password size="lg" btnStyle="primary" [btnOutline]="false"> -->
+
+              <input type="password" id="password" class="fadeIn third" name="password" placeholder="password"
+                formControlName="password">
+              <div *ngIf="submitted && angForm.controls['password'].errors?.required"> <span>Password is required</span>
+              </div>
+              <div *ngIf="submitted && angForm.controls['password'].errors?.minlength"> <span>Password is must be at
+                  least 6 digits</span></div>
+
+              <!-- </show-hide-password> -->
+
+
+
+              <input type="password" id="confirm" class="fadeIn third" name="confirmlogin" placeholder="confirmpassword"
+                formControlName="confirmpassword">
+              <div *ngIf="submitted && angForm.controls['confirmpassword'].errors?.required"> <span>ConfirmPassword is
+                  required</span></div>
+              <div *ngIf="submitted && angForm.controls['confirmpassword'].errors?.mustMatch"><span>Password is not
+                  matched </span></div>
+
+              <input type="submit" class="fadeIn fourth" value="Register">
+              <div class="col-lg-12">
+                <a class="underlineHover fadeIn fifth" [routerLink]="['/login']">I have already an account</a>
+              </div>
+            </form>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+              <a class="underlineHover" href="#">Forgot Password?</a>
+            </div>
+
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="banner-area text-center">
+</div>

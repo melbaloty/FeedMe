@@ -1,0 +1,215 @@
+<section class="banner-area banner-area2 blog-bg text-center">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <h1><i>Order Payment</i></h1>
+          </div>
+      </div>
+  </div>
+</section>
+<section class="food-area section-padding">
+  <div class="container">
+
+
+  <!-- <body class="bg-light"> -->
+    <form [formGroup]="angForm"
+    class="card p-2"
+    class="needs-validation"
+    novalidate
+
+    (submit)="Pay()"
+  >
+    <div class="container">
+
+      <div class="row">
+
+
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Delivery address</h4>
+
+          <div class="mb-3">
+            <br>
+            <label for="address">Address</label>
+            <input
+              type="text"
+              class="form-control"
+              id="address"
+              placeholder="1234 Main St"
+              required
+              formControlName="Address"
+            />
+            <div
+              *ngIf="submitted && angForm.controls['Address'].errors?.required"
+            >
+              <label class="validation"> Address is required. </label>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="address2"
+              >Address 2 <span class="text-muted">(Optional)</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="address2"
+              placeholder="Apartment or suite"
+              formControlName="Address2"
+            />
+            <div
+              *ngIf="submitted && angForm.controls['Address2'].errors?.required"
+            >
+              <label class="validation"> </label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-5 mb-3">
+              <label for="country">State</label>
+              <select
+                class="custom-select d-block w-100"
+                id="country"
+                required
+                formControlName="State"
+              >
+
+              <option *ngFor="let State of States">
+                  {{State}}
+
+              </option>
+
+              </select>
+              <div
+                *ngIf="submitted && angForm.controls['State'].errors?.required"
+              >
+                <label class="validation"> State is required. </label>
+              </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label for="state">City</label>
+              <select
+                class="custom-select d-block w-100"
+                id="state"
+                required
+                formControlName="City"
+              >
+              <option *ngFor="let City of Cities">
+                {{City}}
+
+            </option>
+
+              </select>
+              <div
+                *ngIf="submitted && angForm.controls['City'].errors?.required"
+              >
+                <label class="validation"> City is required. </label>
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4" />
+
+          <h4 class="mb-3">Payment</h4>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="cc-name">Name on card</label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="cc-name"
+                placeholder="Name On Card"
+                required
+                formControlName="name"
+              />
+              <div
+                *ngIf="submitted && angForm.controls['name'].errors?.required"
+              >
+                <label class="validation"> name is required. </label>
+              </div>
+
+              <small class="text-muted">Full name as displayed on card</small>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="cc-number">Credit card number</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cc-number"
+                placeholder="0000 0000 0000 0000"
+                required
+                formControlName="creditCard"
+              />
+              <div
+                *ngIf="
+                  submitted && angForm.controls['creditCard'].errors?.required
+                "
+              >
+                <label class="validation">
+                  Credit Card number is required.
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <label for="cc-expiration">Expiration</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cc-expiration"
+                placeholder=" MM/YYYY"
+                required
+                formControlName="Expiration"
+              />
+              <div
+                *ngIf="
+                  submitted && angForm.controls['Expiration'].errors?.required
+                "
+              >
+                <label class="validation"> Expiration is required. </label>
+              </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+              <label for="cc-expiration">CVV</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cc-cvv"
+                placeholder="123"
+                required
+                formControlName="cvv"
+              />
+              <div
+                *ngIf="submitted && angForm.controls['cvv'].errors?.required"
+              >
+                <label class="validation"> cvv is required. </label>
+              </div>
+
+              <div class="invalid-feedback">
+                Security code required
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4" />
+          <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!angForm.valid" >
+            Continue to checkout
+          </button>
+        </div>
+      </div>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small"></footer>
+    </div>
+  </form>
+
+
+
+
+
+
+  </div>
+</section>
+<!-- Food Area End -->

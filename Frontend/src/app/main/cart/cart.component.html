@@ -1,0 +1,46 @@
+<!-- Header Area Starts -->
+<section class="reservation-area banner-area2 text-center">
+    <div class="container">
+        <div class="row">
+            <div class=" col-lg-12">
+                <h1><i>Cart</i></h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="food-area section-padding">
+    <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="section-top">
+                        <h3 class="style-change">Selected Meals :</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <h3 *ngIf="meals?.length == 0"> Cart is Empty</h3>
+            </div>
+            <div *ngIf="meals?.length > 0" class="row">
+                <div *ngFor="let meal of meals" class="col-md-4 col-sm-6">
+                    <div (click)="navigate(restaurant)">
+                        <div class="food-img">
+                            <img src="assets/images/food1.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="food-content">
+
+                            <div class="d-flex justify-content-between">
+                                <h5>Meal : {{meal.name}}</h5>
+                            </div>
+                            <p class="pt-3">Price : {{meal.price}} $</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div *ngIf="meals.length > 0" class="col-lg-12">
+                <button (click)= "proceedToPayment()" class="btn btn-primary btn-lg" type="button"> Proceed To Payment</button>
+            </div>
+        </div>
+
+</section>
+<!-- Food Area End -->
